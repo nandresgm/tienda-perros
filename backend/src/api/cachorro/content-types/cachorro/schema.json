@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cachorros",
+  "info": {
+    "singularName": "cachorro",
+    "pluralName": "cachorros",
+    "displayName": "Cachorros"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Raza": {
+      "type": "string"
+    },
+    "FechaNacimiento": {
+      "type": "date"
+    },
+    "FotoPrincipal": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "FotoPadres": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Precio": {
+      "type": "decimal"
+    }
+  }
+}

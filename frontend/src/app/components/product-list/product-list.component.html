@@ -1,0 +1,105 @@
+<div class="container mt-5">
+
+  <!-- Botón de WhatsApp -->
+  <a href="https://api.whatsapp.com/send/?phone=573116590506" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <div *ngIf="products.length === 0">
+    <p>No hay productos disponibles.</p>
+  </div>
+
+  <div *ngFor="let product of products" class="product-card">
+    <div *ngIf="product.nombre === 'Titulo'">
+      <h2 class="text-center fw-bold text-dark mt-4">
+        🐾 RAZAS GRANDES, MEDIANAS Y PEQUEÑAS 🐾
+      </h2>
+      <p>Encuentra a tu compañero ideal 🐶💕. Criamos perros de excelente calidad, llenos de amor y energía, listos para
+        convertirse en parte de tu familia. Descubre nuestra selección de cachorros y deja que la lealtad y la alegría
+        llenen tu hogar.</p>
+
+      <ngx-slick-carousel [config]="slideConfig">
+        <div *ngFor="let imagen of product.imagenes" ngxSlickItem class="slide">
+          <img [src]="imagen" alt="Imagen del producto" width="100%">
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <!-- SECCIÓN DE TESTIMONIOS -->
+  <div class="container my-5">
+    <h2 class="text-center fw-bold text-dark">Lo que dicen nuestros clientes 🐶❤️</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="testimonial-card p-3 shadow rounded text-center">
+          <p class="fst-italic">"Compré un cachorro aquí y ha sido la mejor decisión. ¡Súper saludable y cariñoso!"</p>
+          <h5 class="fw-bold">- Andrea G.</h5>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card p-3 shadow rounded text-center">
+          <p class="fst-italic">"Excelentes perros, buena atención y acompañamiento durante el proceso."</p>
+          <h5 class="fw-bold">- Carlos M.</h5>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card p-3 shadow rounded text-center">
+          <p class="fst-italic">"Mi cachorro llegó con todas sus vacunas y cuidados. ¡Lo amo!"</p>
+          <h5 class="fw-bold">- Laura P.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN GALERÍA DE CACHORROS -->
+  <div class="container my-5">
+    <h2 class="text-center fw-bold text-dark">Nuestros hermosos cachorros 🐶📸</h2>
+    <p class="text-center text-muted">Conoce algunos de los perritos que han encontrado un hogar amoroso.</p>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="gallery-card">
+          <img src="images/cachorro1.jpg" class="img-fluid rounded shadow" alt="Cachorro 1">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery-card">
+          <img src="images/cachorro2.jpeg" class="img-fluid rounded shadow" alt="Cachorro 2">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery-card">
+          <img src="images/cachorro3.jpg" class="img-fluid rounded shadow" alt="Cachorro 3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SECCIÓN BENEFICIOS -->
+  <div class="container my-5">
+    <h2 class="text-center fw-bold text-dark">¿Por qué elegirnos? 🏡🐾</h2>
+    <p class="text-center text-muted">Brindamos confianza, calidad y mucho amor en cada cachorro.</p>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="fa-solid fa-shield-dog fa-3x text-warning"></i>
+        <h5 class="fw-bold mt-3">Cachorros saludables</h5>
+        <p>Vacunados y desparasitados, listos para su nuevo hogar.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fa-solid fa-house fa-3x text-warning"></i>
+        <h5 class="fw-bold mt-3">Asesoría personalizada</h5>
+        <p>Te guiamos para elegir la mejor raza según tu estilo de vida.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fa-solid fa-heart fa-3x text-warning"></i>
+        <h5 class="fw-bold mt-3">Criados con amor</h5>
+        <p>Garantizamos cachorros felices y sociables.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

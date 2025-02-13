@@ -1,0 +1,61 @@
+<div class="container mt-5">
+
+    <!-- Botón de WhatsApp -->
+    <a href="https://api.whatsapp.com/send/?phone=573116590506" target="_blank" class="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <h2 class="text-center fw-bold text-dark">🐶 Cachorros Disponibles</h2>
+    <p class="text-center text-muted">Encuentra el compañero ideal para tu hogar.</p>
+
+    <div class="row">
+        <div *ngFor="let dog of dogs" class="col-md-4">
+            <div class="dog-card" (click)="openModal(dog)">
+                <img [src]="dog.fotoPrincipal" alt="Foto del cachorro">
+                <h5 class="fw-bold text-dark">{{ dog.nombre }}</h5>
+                <p class="text-muted">Raza: {{ dog.raza }}</p>
+                <p class="text-muted">Nacimiento: {{ dog.fechaNacimiento }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div *ngIf="selectedDog" class="modal fade show d-block" (click)="closeModal()">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ selectedDog.nombre }}</h4>
+                <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center">
+                        <img [src]="selectedDog.fotoPrincipal" class="img-fluid rounded shadow main-dog-img">
+                    </div>
+                    <div class="col-md-7 dog-info">
+                        <p class="raza"><i class="fas fa-bone"></i> <strong>Raza:</strong> {{ selectedDog.raza }}</p>
+                        <p class="fecha"><i class="fas fa-calendar-alt"></i> <strong>Fecha de Nacimiento:</strong> {{ selectedDog.fechaNacimiento }}</p>
+                        <p class="precio"><i class="fas fa-dollar-sign"></i> <strong>Precio:</strong> {{ selectedDog.precio | currency:'COP':'symbol':'1.0-0' }}</p>
+                    </div>
+                </div>
+
+                <div class="parents-section">
+                    <h5 class="text-center">🐾 PADRES 🐾</h5>
+                    <div class="row">
+                        <div *ngFor="let padre of selectedDog.fotosPadres" class="col-md-6 text-center">
+                            <img [src]="padre" class="img-fluid rounded shadow-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón de WhatsApp dentro del modal-body -->
+                <div class="text-center mt-3">
+                    <a [href]="getWhatsappLink(selectedDog.nombre)" target="_blank" class="btn btn-success w-100">
+                        <i class="fab fa-whatsapp"></i> Quiero saber más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
